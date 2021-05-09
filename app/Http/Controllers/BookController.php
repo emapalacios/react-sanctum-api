@@ -35,7 +35,21 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        try {
+
+            $book = Book::create($request->all());
+
+            return response()->json([
+                'book' => $book
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => true,
+                'message' => $e->getMessage()
+            ]);
+        }
     }
 
     /**

@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->get('/books', 'App\Http\Controllers\BookController@index');
+Route::middleware('auth:sanctum')->post('/books', 'App\Http\Controllers\BookController@store');
+Route::middleware('auth:sanctum')->put('/books', 'App\Http\Controllers\BookController@store');
